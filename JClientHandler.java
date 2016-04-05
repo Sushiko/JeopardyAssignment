@@ -19,6 +19,7 @@ public class JClientHandler implements Runnable
 	private Socket connectionSock = null;
 	private ArrayList<Socket> socketList;
 	public static int clientNum = 1;
+
 	JClientHandler(Socket sock, ArrayList<Socket> socketList)
 	{
 		this.connectionSock = sock;
@@ -35,7 +36,11 @@ public class JClientHandler implements Runnable
 				new InputStreamReader(connectionSock.getInputStream()));
 			String name = clientInput.readLine();
 			DataOutputStream clientOutput = new DataOutputStream(connectionSock.getOutputStream());
-			clientOutput.writeBytes("You are client number: " + clientNum + "\n");
+			
+			// print client number
+			clientOutput.writeBytes("Welcome, Client number: " + clientNum + "\n");
+			clientOutput.writeBytes("Enter 1 to hit the buzzer!\n");
+
 			clientNum++;
 
 			while (true)
@@ -44,10 +49,16 @@ public class JClientHandler implements Runnable
 				String clientText = clientInput.readLine();
 				if (clientText != null)
 				{
+					if(clientText.equals("1"))
+						System.out.println("BUZZ! " + name + " has hit the buzzer.");
+					else
+					{
 					System.out.println(name + ": " + clientText);
 					// Turn around and output this data
 					// to all other clients except the one
 					// that sent us this information
+					}
+
 					for (Socket s : socketList)
 					{
 						if (s != connectionSock)
@@ -55,6 +66,7 @@ public class JClientHandler implements Runnable
 							clientOutput = new DataOutputStream(s.getOutputStream());
 							clientOutput.writeBytes(name + ": " + clientText + "\n");
 						}
+
 					}
 				}
 				else
