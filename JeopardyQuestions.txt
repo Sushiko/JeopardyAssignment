@@ -1,0 +1,5 @@
+The connection control mechanism that is negotiated between a client and server,What is Flow Control?
+The process of establishing a TCP connection,What is the Three Way Handshake?
+The protocol for communication between two email servers,What is SMTP?,What is Simple Mail Transfer Protocol?
+An IPv6 address is this many bits long,What is 128?
+A TCP congestion avoidance protocol,What is Reno?,What is Tahoe?
