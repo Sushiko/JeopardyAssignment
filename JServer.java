@@ -1,16 +1,8 @@
 /**
+ * JeopardyAssignment Submission 3 Question and Answer
  * JServer.java
  *
- * This program implements a simple multithreaded chat server.  Every client that
- * connects to the server can broadcast data to all other clients.
- * The server stores an ArrayList of sockets to perform the broadcast.
- *
- * The JServer uses a ClientHandler whose code is in a separate file.
- * When a client connects, the JServer starts a ClientHandler in a separate thread 
- * to receive messages from the client.
- *
- * To test, start the server first, then start multiple clients and type messages
- * in the client windows.
+ * This program implements a simple multithreaded jeopardy server.  
  *
  */
 import java.net.ServerSocket;

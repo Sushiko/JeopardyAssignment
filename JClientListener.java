@@ -1,4 +1,5 @@
-/**
+/*
+ * JeopardyAssignment Submission 3 Question and Answer
  * JClientListener.java
  *
  * This class runs on the client end and just
